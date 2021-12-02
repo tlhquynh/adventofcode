@@ -8,5 +8,8 @@ public class Aoc2021Story {
     SonarSweep ss = new SonarSweep();
     ss.countDrops();
     ss.countSize3WindowDrops();
+
+    Submarine submarine = new Submarine();
+    submarine.findProdDepthHorizontal();
   }
 }
