@@ -10,6 +10,7 @@ public class Aoc2021Story {
     ss.countSize3WindowDrops();
 
     Submarine submarine = new Submarine();
-    submarine.findProdDepthHorizontal();
+    submarine.findSimplePath();
+    submarine.findComplexPath();
   }
 }
