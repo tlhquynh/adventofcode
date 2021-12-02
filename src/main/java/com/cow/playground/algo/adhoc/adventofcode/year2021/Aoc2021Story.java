@@ -5,12 +5,14 @@ import java.io.IOException;
 public class Aoc2021Story {
 
   public static void main(String[] args) throws IOException {
-    SonarSweep ss = new SonarSweep();
+    SonarScanner ss = new SonarScanner();
     ss.countDrops();
     ss.countSize3WindowDrops();
 
     Submarine submarine = new Submarine();
-    submarine.findSimplePath();
-    submarine.findComplexPath();
+    submarine.setExplorationStrategy(new SimpleExplorationStrategy());
+    submarine.explore();
+    submarine.setExplorationStrategy(new ComplexExplorationStrategy());
+    submarine.explore();
   }
 }

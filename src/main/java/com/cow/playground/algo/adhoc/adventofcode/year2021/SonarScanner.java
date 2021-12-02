@@ -11,16 +11,16 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SonarSweep {
+public class SonarScanner {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(SonarSweep.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(SonarScanner.class);
 
   private static final String INPUT_FILENAME = "day1.in";
   private static final String INPUT_PATH = "year2021\\" + INPUT_FILENAME;
 
   private List<Integer> depths;
 
-  public SonarSweep() throws IOException {
+  public SonarScanner() throws IOException {
     readInputs();
   }
 
@@ -34,7 +34,7 @@ public class SonarSweep {
     return countWindowDrops(3);
   }
 
-  public int countWindowDrops(int windowSize) {
+  private int countWindowDrops(int windowSize) {
     int res = 0;
     for (int i = 0; i < depths.size() - windowSize; i++) {
       if (depths.get(i) < depths.get(i + windowSize)) {

@@ -18,49 +18,18 @@ public class Submarine {
   private static final String INPUT_FILENAME = "day2.in";
   private static final String INPUT_PATH = "year2021\\" + INPUT_FILENAME;
 
-  private long dep;
-  private long hor;
   private List<String> ops;
   private List<Integer> vals;
 
+  private SubmarineExplorationStrategy explorationStrategy;
+
   public Submarine() throws IOException {
     readInputs();
+    this.explorationStrategy = new SimpleExplorationStrategy();
   }
 
-  public void reset(long dep, long hor) {
-    this.dep = dep;
-    this.hor = hor;
-  }
-
-  public long findSimplePath() {
-    reset(0, 0);
-    for (int i = 0; i < ops.size(); i++) {
-      switch (ops.get(i)) {
-        case "forward": hor += vals.get(i); break;
-        case "down": dep += vals.get(i); break;
-        case "up": dep -= vals.get(i); break;
-      }
-    }
-    long prod = dep * hor;
-    LOGGER.info("day 2 task 1: 1804520");
-    LOGGER.info("Simple path location depth={} horizontal={} prod={}", dep, hor, prod);
-    return prod;
-  }
-
-  public long findComplexPath() {
-    reset(0, 0);
-    long aim = 0;
-    for (int i = 0; i < ops.size(); i++) {
-      switch (ops.get(i)) {
-        case "forward": hor += vals.get(i); dep += aim * vals.get(i); break;
-        case "down": aim += vals.get(i); break;
-        case "up": aim -= vals.get(i); break;
-      }
-    }
-    long prod = dep * hor;
-    LOGGER.info("day 2 task 2: 1971095320");
-    LOGGER.info("Complex path location depth={} horizontal={} prod={}", dep, hor, prod);
-    return prod;
+  public long explore() {
+    return explorationStrategy.explore(0, 0);
   }
 
   private void readInputs() throws IOException {
@@ -77,5 +46,11 @@ public class Submarine {
         vals.add(Integer.parseInt(tokens[1]));
       }
     }
+  }
+
+  public void setExplorationStrategy(SubmarineExplorationStrategy explorationStrategy) {
+    this.explorationStrategy = explorationStrategy;
+    this.explorationStrategy.setOps(ops);
+    this.explorationStrategy.setVals(vals);
   }
 }
