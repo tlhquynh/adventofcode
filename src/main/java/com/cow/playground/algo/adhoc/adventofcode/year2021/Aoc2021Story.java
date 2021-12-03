@@ -14,5 +14,8 @@ public class Aoc2021Story {
     submarine.explore();
     submarine.setExplorationStrategy(new ComplexExplorationStrategy());
     submarine.explore();
+
+    SubmarineHealthCheck healthCheck = new SubmarineHealthCheck();
+    healthCheck.getPowerConsumption();
   }
 }
