@@ -9,7 +9,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class SubmarineHealthCheck {
 
@@ -47,6 +49,69 @@ public class SubmarineHealthCheck {
     LOGGER.info("day 3 task 1: 4147524");
     LOGGER.info("gamma={} epsilon={} power={}", gamma, epsilon, res);
     return res;
+  }
+
+  public int getLifeSupportRating() {
+    int res = getOxygenGeneratorRating() * getCo2ScrubberRating();
+    LOGGER.info("day 3 task 2: 3570354");
+    LOGGER.info("life support rating={}", res);
+    return res;
+  }
+
+  private int getOxygenGeneratorRating() {
+    Set<String> start = new HashSet<>(reportVals);
+    for (int bit = 0; start.size() > 1; bit++) {
+      Set<String> next = new HashSet<>();
+      int ones = 0;
+      for (String val : start) {
+        if (val.charAt(bit) == '1') {
+          ones++;
+        }
+      }
+      if (ones + ones >= start.size()) {
+        for (String val : start) {
+          if (val.charAt(bit) == '1') {
+            next.add(val);
+          }
+        }
+      } else {
+        for (String val : start) {
+          if (val.charAt(bit) == '0') {
+            next.add(val);
+          }
+        }
+      }
+      start = next;
+    }
+    return Integer.parseInt(start.iterator().next(), 2);
+  }
+
+  private int getCo2ScrubberRating() {
+    Set<String> start = new HashSet<>(reportVals);
+    for (int bit = 0; start.size() > 1; bit++) {
+      Set<String> next = new HashSet<>();
+      int zeroes = 0;
+      for (String val : start) {
+        if (val.charAt(bit) == '0') {
+          zeroes++;
+        }
+      }
+      if (zeroes + zeroes <= start.size()) {
+        for (String val : start) {
+          if (val.charAt(bit) == '0') {
+            next.add(val);
+          }
+        }
+      } else {
+        for (String val : start) {
+          if (val.charAt(bit) == '1') {
+            next.add(val);
+          }
+        }
+      }
+      start = next;
+    }
+    return Integer.parseInt(start.iterator().next(), 2);
   }
 
   private void readInputs() throws IOException {

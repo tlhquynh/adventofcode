@@ -17,5 +17,6 @@ public class Aoc2021Story {
 
     SubmarineHealthCheck healthCheck = new SubmarineHealthCheck();
     healthCheck.getPowerConsumption();
+    healthCheck.getLifeSupportRating();
   }
 }
