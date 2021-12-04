@@ -9,7 +9,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class BingoGame {
@@ -27,34 +26,40 @@ public class BingoGame {
     readInputs();
   }
 
-  public int start() {
-    int score = -1;
-    outer:
+  public void start() {
+    List<Integer> scores = new ArrayList<>();
+    boolean[] visited = new boolean[boards.size()];
     for (int num : drawnNumbers) {
-      for (int[][] board : boards) {
-        for (int i = 0; i < 5; i++) {
-          for (int j = 0; j < 5; j++) {
-            if (board[i][j] == num) {
-              board[i][j] = board[i][j] + MAX;
-              boolean bingo = true;
-              for (int k = 0; k < 5; k++) {
-                if (board[i][k] < MAX) {
-                  bingo = false;
+      LOGGER.trace("Drawn {}", num);
+      for (int u = 0; u < boards.size(); u++) {
+        if (!visited[u]) {
+          int[][] board = boards.get(u);
+          for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+              if (board[i][j] == num) {
+                board[i][j] = board[i][j] + MAX;
+                boolean bingo = true;
+                for (int k = 0; k < 5; k++) {
+                  if (board[i][k] < MAX) {
+                    bingo = false;
+                  }
                 }
-              }
-              if (bingo) {
-                score = getScore(board, num);
-                break outer;
-              }
-              bingo = true;
-              for (int k = 0; k < 5; k++) {
-                if (board[k][j] < MAX) {
-                  bingo = false;
+                if (bingo) {
+                  visited[u] = true;
+                  scores.add(getScore(board, num));
+                  LOGGER.trace("Bingo at board {} with point {}", u, scores.get(scores.size() - 1));
                 }
-              }
-              if (bingo) {
-                score = getScore(board, num);
-                break outer;
+                bingo = true;
+                for (int k = 0; k < 5; k++) {
+                  if (board[k][j] < MAX) {
+                    bingo = false;
+                  }
+                }
+                if (bingo) {
+                  visited[u] = true;
+                  scores.add(getScore(board, num));
+                  LOGGER.trace("Bingo at board {} with point {}", u, scores.get(scores.size() - 1));
+                }
               }
             }
           }
@@ -62,8 +67,9 @@ public class BingoGame {
       }
     }
     LOGGER.info("day 4 task 1: 63424");
-    LOGGER.info("bingo score = {}", score);
-    return -1;
+    LOGGER.info("first bingo score = {}", scores.get(0));
+    LOGGER.info("day 4 task 2: 23541");
+    LOGGER.info("last bingo score = {}", scores.get(scores.size() - 1));
   }
 
   private int getScore(int[][] board, int lastDrawn) {
@@ -88,7 +94,6 @@ public class BingoGame {
       for (String token : tokens) {
         drawnNumbers.add(Integer.parseInt(token));
       }
-      LOGGER.debug(drawnNumbers.toString());
       boards = new ArrayList<>();
       String line;
       while ((line = reader.readLine()) != null) {
@@ -98,9 +103,8 @@ public class BingoGame {
           for (int j = 0; j < 5; j++) {
             board[i][j] = Integer.parseInt(tokens[j]);
           }
-          boards.add(board);
-          LOGGER.info(Arrays.toString(board[i]));
         }
+        boards.add(board);
       }
     }
   }
