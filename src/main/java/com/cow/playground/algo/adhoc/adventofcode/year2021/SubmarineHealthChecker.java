@@ -11,16 +11,16 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SubmarineHealthCheck {
+public class SubmarineHealthChecker {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(SubmarineHealthCheck.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(SubmarineHealthChecker.class);
 
   private static final String INPUT_FILENAME = "day3.in";
   private static final String INPUT_PATH = "year2021\\" + INPUT_FILENAME;
 
   private List<String> report;
 
-  public SubmarineHealthCheck() throws IOException {
+  public SubmarineHealthChecker() throws IOException {
     readInputs();
   }
 

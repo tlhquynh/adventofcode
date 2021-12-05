@@ -18,12 +18,17 @@ public class Aoc2021Story {
     submarine.explore();
 
     // day 3 submarine health check
-    SubmarineHealthCheck healthCheck = new SubmarineHealthCheck();
+    SubmarineHealthChecker healthCheck = new SubmarineHealthChecker();
     healthCheck.getPowerConsumption();
     healthCheck.getLifeSupportRating();
 
     // day 4 playing bingo with the giant squid
     BingoGame bingoGame = new BingoGame();
     bingoGame.start();
+
+    // day 5 hypothermal vent danger
+    SubmarineHydrothermalVentFinder finder = new SubmarineHydrothermalVentFinder();
+    finder.countHorizontalVerticalDangerousSpots();
+    finder.countHorizontalVerticalDiagonalDangerousSpots();
   }
 }
