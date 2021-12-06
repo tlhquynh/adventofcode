@@ -30,5 +30,10 @@ public class Aoc2021Story {
     SubmarineHydrothermalVentFinder finder = new SubmarineHydrothermalVentFinder();
     finder.countHorizontalVerticalDangerousSpots();
     finder.countHorizontalVerticalDiagonalDangerousSpots();
+
+    // day 6 lantern fish study
+    LanternFishSimulator simulator = new LanternFishSimulator();
+    simulator.speculateSchoolSize(80);
+    simulator.speculateSchoolSize(256);
   }
 }
