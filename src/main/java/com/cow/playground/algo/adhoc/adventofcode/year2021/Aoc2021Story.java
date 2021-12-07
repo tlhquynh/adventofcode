@@ -35,5 +35,10 @@ public class Aoc2021Story {
     LanternFishSimulator simulator = new LanternFishSimulator();
     simulator.speculateSchoolSize(80);
     simulator.speculateSchoolSize(256);
+
+    // day 7 escape the whale
+    EscapePlan escapePlan = new EscapePlan();
+    escapePlan.bestSimpleCrabAlignment();
+    escapePlan.bestComplexCrabAlignment();
   }
 }

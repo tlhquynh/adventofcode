@@ -26,6 +26,8 @@ public class Submarine {
   public Submarine() throws IOException {
     readInputs();
     this.explorationStrategy = new SimpleExplorationStrategy();
+    this.explorationStrategy.setOps(ops);
+    this.explorationStrategy.setVals(vals);
   }
 
   public long explore() {
