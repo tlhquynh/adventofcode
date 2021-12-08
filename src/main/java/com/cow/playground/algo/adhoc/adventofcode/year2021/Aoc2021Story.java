@@ -40,5 +40,10 @@ public class Aoc2021Story {
     EscapePlan escapePlan = new EscapePlan();
     escapePlan.bestSimpleCrabAlignment();
     escapePlan.bestComplexCrabAlignment();
+
+    // day 8 solve submarine display malfunction
+    SubmarineDisplay display = new SubmarineDisplay();
+    display.count1478();
+    display.findOutputSum();
   }
 }
