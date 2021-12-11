@@ -53,5 +53,10 @@ public class Aoc2021Story {
     // day 10 syntax checker
     SyntaxChecker syntaxChecker = new SyntaxChecker();
     syntaxChecker.findErrorScores();
+
+    // day 11 octopus xmas flashes
+    OctopusBoard board = new OctopusBoard();
+    board.simulate(100);
+    board.simulateNonstop();
   }
 }

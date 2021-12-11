@@ -30,19 +30,17 @@ public class SyntaxChecker {
     List<Long> res = new ArrayList<>();
     List<Long> incomplete = new ArrayList<>();
     long errorScores = 0;
-    int i = 0;
     for (String input : inputs) {
       long score = findErrorScore(input);
       if (score > 0) {
         errorScores += score;
       } else if (score < 0) {
-        LOGGER.info("{} score={}", ++i, -score);
         incomplete.add(-score);
       }
       res.add(score);
     }
     Collections.sort(incomplete);
-    LOGGER.info("day 10 task 1: 1503747205");
+    LOGGER.info("day 10 task 1: 415953");
     LOGGER.info("total error scores = {}", errorScores);
     LOGGER.info("day 10 task 2: 2292863731");
     LOGGER.info("total error fix scores = {}", incomplete.get(incomplete.size() / 2));
