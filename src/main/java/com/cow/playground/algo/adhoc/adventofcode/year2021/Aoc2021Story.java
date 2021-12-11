@@ -45,5 +45,13 @@ public class Aoc2021Story {
     SubmarineDisplay display = new SubmarineDisplay();
     display.count1478();
     display.findOutputSum();
+
+    // day 9 analyze smoke basin map
+    HeightMapAnalyzer mapAnalyzer = new HeightMapAnalyzer();
+    mapAnalyzer.detectBasinAreas();
+
+    // day 10 syntax checker
+    SyntaxChecker syntaxChecker = new SyntaxChecker();
+    syntaxChecker.findErrorScores();
   }
 }
