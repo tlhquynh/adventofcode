@@ -1,6 +1,11 @@
 package com.cow.playground.algo.adhoc.adventofcode.year2021;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 public class Aoc2021Story {
 
@@ -58,5 +63,11 @@ public class Aoc2021Story {
     OctopusBoard board = new OctopusBoard();
     board.simulate(100);
     board.simulateNonstop();
+
+    // day 12 path finder
+    PathFinder pathFinder = new PathFinder();
+    pathFinder.countMoreUniquePaths();
   }
+
+
 }
