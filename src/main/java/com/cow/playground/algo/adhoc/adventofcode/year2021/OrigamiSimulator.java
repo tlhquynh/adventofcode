@@ -23,6 +23,7 @@ public class OrigamiSimulator {
   private static final int X = 1;
   private static final Comparator<int[]> sortY = (u, v) -> u[Y] == v[Y] ? u[X] - v[X] : u[Y] - v[Y];
   private static final Comparator<int[]> sortX = (u, v) -> u[X] == v[X] ? u[Y] - v[Y] : u[X] - v[X];
+  private static final Comparator[] sort = {sortY, sortX};
   private static final int VERY_SMALL = -10_000;
 
   private List<int[]> points;
@@ -85,33 +86,26 @@ public class OrigamiSimulator {
   private int fold(int steps) {
     for (int i = 0; i < steps; i++) {
       int[] fold = folds.get(i);
-      if (fold[0] == X) {
-        Collections.sort(points, sortX);
-        int startingIndex = -(Collections.binarySearch(points, new int[]{VERY_SMALL, fold[1] + 1}, sortX) + 1);
-        List<int[]> newPoints = new ArrayList<>();
-        for (int j = startingIndex; j < points.size(); j++) {
-          int y = points.get(j)[Y];
-          int x = fold[1] - (points.get(j)[X] - fold[1]);
-          if (Collections.binarySearch(points, new int[]{y, x}, sortX) < 0) {
-            newPoints.add(new int[]{y, x});
-          }
+      int foldBy = fold[0];
+      int foldAt = fold[1];
+
+      Collections.sort(points, sort[foldBy]);
+
+      int[] tempPoint = new int[2];
+      tempPoint[foldBy] = foldAt + 1;
+      tempPoint[1 - foldBy] = VERY_SMALL;
+      int startingIndex = -(Collections.binarySearch(points, tempPoint, sort[foldBy]) + 1);
+      List<int[]> newPoints = new ArrayList<>();
+      for (int j = startingIndex; j < points.size(); j++) {
+        tempPoint = new int[2];
+        tempPoint[1 - foldBy] = points.get(j)[1 - foldBy];
+        tempPoint[foldBy] = foldAt - (points.get(j)[foldBy] - foldAt);
+        if (Collections.binarySearch(points, tempPoint, sort[foldBy]) < 0) {
+          newPoints.add(tempPoint);
         }
-        points.removeIf(u -> u[X] > fold[1]);
-        points.addAll(newPoints);
-      } else {
-        Collections.sort(points, sortY);
-        int startingIndex = -(Collections.binarySearch(points, new int[]{fold[1] + 1, VERY_SMALL}, sortY) + 1);
-        List<int[]> newPoints = new ArrayList<>();
-        for (int j = startingIndex; j < points.size(); j++) {
-          int y = fold[1] - (points.get(j)[Y] - fold[1]);
-          int x = points.get(j)[X];
-          if (Collections.binarySearch(points, new int[]{y, x}, sortY) < 0) {
-            newPoints.add(new int[]{y, x});
-          }
-        }
-        points.removeIf(u -> u[Y] > fold[1]);
-        points.addAll(newPoints);
       }
+      points.removeIf(u -> u[foldBy] > foldAt);
+      points.addAll(newPoints);
     }
     return points.size();
   }
