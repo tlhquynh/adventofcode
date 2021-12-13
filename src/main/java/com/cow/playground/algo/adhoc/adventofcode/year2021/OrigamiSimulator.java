@@ -50,8 +50,8 @@ public class OrigamiSimulator {
       minY = Math.min(minY, point[Y]);
     }
     for (int[] point : points) {
-      point[X] += minX;
-      point[Y] += minY;
+      point[X] -= minX;
+      point[Y] -= minY;
     }
 
     Collections.sort(points, sortY);
