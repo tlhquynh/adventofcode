@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ComplexEscapeStrategy implements EscapeStrategy {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(SimpleEscapeStrategy.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(ComplexEscapeStrategy.class);
 
   @Override
   public long execute(List<Integer> startingCrabs) {
