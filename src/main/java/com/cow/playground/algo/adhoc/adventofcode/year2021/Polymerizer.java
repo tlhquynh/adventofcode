@@ -54,6 +54,13 @@ public class Polymerizer {
     return res;
   }
 
+  /**
+   * Count the frequencies of A-Z into count if starting pair is c1c2 with the specified roundsLeft
+   * @param c1
+   * @param c2
+   * @param roundsLeft
+   * @param count
+   */
   private void countChars(char c1, char c2, int roundsLeft, long[][][][] count) {
     if (count[c1 - 'A'][c2 - 'A'][roundsLeft] != null) {
       return;
