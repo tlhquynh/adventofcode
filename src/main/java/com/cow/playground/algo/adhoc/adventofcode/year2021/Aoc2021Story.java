@@ -67,6 +67,10 @@ public class Aoc2021Story {
     OrigamiSimulator origamiSimulator = new OrigamiSimulator();
     origamiSimulator.foldOnce();
     origamiSimulator.foldAll();
+
+    // day 14 polymerization
+    Polymerizer polymerizer = new Polymerizer();
+    polymerizer.transform(10);
   }
 
 
