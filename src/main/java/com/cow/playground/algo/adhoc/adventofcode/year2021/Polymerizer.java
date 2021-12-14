@@ -27,7 +27,7 @@ public class Polymerizer {
 
   public long[] transform(int rounds) {
     // count[u][v][i][j]: String uv after i rounds generates how many characters from A to Z
-    long[][][][] count = new long['Z' - 'A' + 1]['Z' - 'A' + 1][41][];
+    long[][][][] count = new long['Z' - 'A' + 1]['Z' - 'A' + 1][rounds+1][];
     long[] res = new long['Z' - 'A' + 1];
     for (int i = 0; i < template.length() - 1; i++) {
       countChars(template.charAt(i), template.charAt(i + 1), rounds, count);
