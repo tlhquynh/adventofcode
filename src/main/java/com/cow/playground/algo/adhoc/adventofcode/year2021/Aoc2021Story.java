@@ -71,6 +71,7 @@ public class Aoc2021Story {
     // day 14 polymerization
     Polymerizer polymerizer = new Polymerizer();
     polymerizer.transform(10);
+    polymerizer.transform(40);
   }
 
 
