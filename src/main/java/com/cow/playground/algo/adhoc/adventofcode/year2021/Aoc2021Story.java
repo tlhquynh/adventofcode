@@ -72,6 +72,9 @@ public class Aoc2021Story {
     Polymerizer polymerizer = new Polymerizer();
     polymerizer.transform(10);
     polymerizer.transform(40);
+
+    ChitonBoard chitonBoard = new ChitonBoard();
+    chitonBoard.safestPathToTarget();
   }
 
 
