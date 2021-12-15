@@ -9,8 +9,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.PriorityQueue;
 
 public class ChitonBoard {
 
@@ -18,10 +19,8 @@ public class ChitonBoard {
 
   private static final String INPUT_FILENAME = "day15.in";
   private static final String INPUT_PATH = "year2021\\" + INPUT_FILENAME;
-  private static final int[] DY = {-1, 1, 0, 0};
-  private static final int[] DX = {0, 0, 1, -1};
-  private static final int Y = 0;
-  private static final int X = 1;
+  private static final int[] DY = {0, 0, -1, 1};
+  private static final int[] DX = {-1, 1, 0, 0};
 
   private List<int[]> board;
 
@@ -29,27 +28,68 @@ public class ChitonBoard {
     readInputs();
   }
 
-  public int safestPathToTarget() {
+  public int safestPathToTarget(int reps) {
     int nRow = board.size();
     int nCol = board.get(0).length;
-    int[][] dp = new int[2][nCol];
-    Arrays.fill(dp[0], Integer.MAX_VALUE);
-    dp[0][0] = 0;
+
+    int[][] d = new int[nRow * reps][nCol * reps];
+    dijkstra(0, 0, d);
+
+    LOGGER.info("day 15 task 1 / 2: 769 / 2963");
+    LOGGER.info("lowest risk path={}", d[d.length - 1][d[0].length - 1]);
+
+    return d[d.length - 1][d[0].length - 1];
+  }
+
+  /**
+   * Dijkstra when node is labeled as a coordinate (y, x)
+   *
+   * @param sy starting y
+   * @param sx starting x
+   * @param d  distance from (sy, sx)
+   */
+  private void dijkstra(int sy, int sx, int[][] d) {
+
+    // nRow and nCol now are multiples of the original nRow and nCol
+    int nRow = d.length;
+    int nCol = d[0].length;
+
     for (int i = 0; i < nRow; i++) {
-      dp[1][0] = dp[0][0] + board.get(i)[0];
-      for (int j = 1; j < nCol; j++) {
-        dp[1][j] = Math.min(dp[1][j - 1], dp[0][j]) + board.get(i)[j];
+      for (int j = 0; j < nCol; j++) {
+        d[i][j] = Integer.MAX_VALUE;
       }
-      dp[0] = dp[1];
-      dp[1] = new int[nCol];
     }
 
-    int res = dp[0][nCol - 1] - board.get(0)[0];
+    d[sy][sx] = 0;
+    PriorityQueue<int[]> q = new PriorityQueue<>(Comparator.comparingInt(u -> u[2]));
+    q.add(new int[]{sy, sx, 0});
+    while (!q.isEmpty()) {
+      int[] cur = q.poll();
+      int y = cur[0];
+      int x = cur[1];
+      int v = cur[2];
+      if (v != d[y][x])
+        continue;
 
-    LOGGER.info("day 15 task 1: 769");
-    LOGGER.info("lowest risk path={}", res);
+      for (int i = 0; i < DY.length; i++) {
+        int nextY = y + DY[i];
+        int nextX = x + DX[i];
+        if (nextY < 0 || nextX < 0 || nextY >= nRow || nextX >= nCol) {
+          continue;
+        }
 
-    return res;
+        if (d[y][x] + getVal(nextY, nextX) < d[nextY][nextX]) {
+          d[nextY][nextX] = d[y][x] + getVal(nextY, nextX);
+          q.add(new int[]{nextY, nextX, d[nextY][nextX]});
+        }
+      }
+    }
+  }
+
+  private int getVal(int i, int j) {
+    int nRow = board.size();
+    int nCol = board.get(0).length;
+    return (board.get(i % nRow)[j % nCol] - 1 + i / nRow + j / nCol) % 9 + 1;
   }
 
   private void readInputs() throws IOException {
@@ -67,6 +107,4 @@ public class ChitonBoard {
       }
     }
   }
-
-
 }

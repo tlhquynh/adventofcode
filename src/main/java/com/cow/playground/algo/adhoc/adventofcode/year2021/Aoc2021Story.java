@@ -74,7 +74,8 @@ public class Aoc2021Story {
     polymerizer.transform(40);
 
     ChitonBoard chitonBoard = new ChitonBoard();
-    chitonBoard.safestPathToTarget();
+    chitonBoard.safestPathToTarget(1);
+    chitonBoard.safestPathToTarget(5);
   }
 
 
