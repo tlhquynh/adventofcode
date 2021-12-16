@@ -73,9 +73,15 @@ public class Aoc2021Story {
     polymerizer.transform(10);
     polymerizer.transform(40);
 
+    // day 15 avoid chitons
     ChitonBoard chitonBoard = new ChitonBoard();
     chitonBoard.safestPathToTarget(1);
     chitonBoard.safestPathToTarget(5);
+
+    // day 16 packet decoder
+    PacketDecoder packetDecoder = new PacketDecoder();
+    packetDecoder.sumAllVersions();
+    packetDecoder.evaluate();
   }
 
 
