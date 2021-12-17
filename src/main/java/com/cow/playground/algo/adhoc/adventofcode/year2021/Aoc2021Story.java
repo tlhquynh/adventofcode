@@ -82,6 +82,10 @@ public class Aoc2021Story {
     PacketDecoder packetDecoder = new PacketDecoder();
     packetDecoder.sumAllVersions();
     packetDecoder.evaluate();
+
+    // day 17 trick shot to target area
+    ProbeLauncher probeLauncher = new ProbeLauncher();
+    probeLauncher.fireToPosXNegYTarget();
   }
 
 
