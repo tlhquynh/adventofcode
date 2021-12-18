@@ -86,6 +86,11 @@ public class Aoc2021Story {
     // day 17 trick shot to target area
     ProbeLauncher probeLauncher = new ProbeLauncher();
     probeLauncher.fireToPosXNegYTarget();
+
+    // day 18 snailfish homework
+    SnailfishMaths snailfishMaths = new SnailfishMaths();
+    snailfishMaths.sumMagnitude();
+    snailfishMaths.largestMagnitudeOfPairs();
   }
 
 
