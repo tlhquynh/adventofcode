@@ -91,6 +91,14 @@ public class Aoc2021Story {
     SnailfishMaths snailfishMaths = new SnailfishMaths();
     snailfishMaths.sumMagnitude();
     snailfishMaths.largestMagnitudeOfPairs();
+
+    // day 19 locate beacons: unsolved
+//    BeaconLocator beaconLocator;
+
+    // day 20 trench image enhancement
+    ImageEnhancer enhancer = new ImageEnhancer();
+    enhancer.enhance(2);
+    enhancer.enhance(50);
   }
 
 
