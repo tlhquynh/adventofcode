@@ -64,10 +64,10 @@ public class ImageEnhancer {
     return clone;
   }
 
-  private void print(List<List<Integer>> clone) {
+  private void print(List<List<Integer>> image) {
     StringBuilder sb = new StringBuilder();
     sb.append("new state\n");
-    for (List<Integer> row : clone) {
+    for (List<Integer> row : image) {
       sb.append("\n").append(row);
     }
     LOGGER.debug(sb.toString());
@@ -77,6 +77,7 @@ public class ImageEnhancer {
     int nCol = inputImage.get(0).size();
     List<List<Integer>> res = new ArrayList<>();
     int margin = enhancingTimes * 2;
+    // add top margin
     for (int i = 0; i < margin; i++) {
       List<Integer> row = new ArrayList<>();
       for (int j = 0; j < margin + nCol + margin; j++) {
@@ -84,6 +85,7 @@ public class ImageEnhancer {
       }
       res.add(row);
     }
+    // add left and right margins
     for (int i = 0; i < inputImage.size(); i++) {
       List<Integer> row = new ArrayList<>();
       for (int j = 0; j < margin; j++) {
@@ -95,6 +97,7 @@ public class ImageEnhancer {
       }
       res.add(row);
     }
+    // add bottom margin
     for (int i = 0; i < margin; i++) {
       List<Integer> row = new ArrayList<>();
       for (int j = 0; j < margin + nCol + margin; j++) {

@@ -99,6 +99,11 @@ public class Aoc2021Story {
     ImageEnhancer enhancer = new ImageEnhancer();
     enhancer.enhance(2);
     enhancer.enhance(50);
+
+    // day 21 dirac dice
+    DiracDiceGame game = new DiracDiceGame();
+    game.simulateDeterministicDice(100);
+    game.simulateDiracDice();
   }
 
 
