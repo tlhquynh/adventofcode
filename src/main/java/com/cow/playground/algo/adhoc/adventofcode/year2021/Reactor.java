@@ -115,15 +115,7 @@ public class Reactor {
               cur.get(j).zRange[0] = cuboids.get(i).zRange[0];
             }
           }
-        }
-        if (!isInside(cur.get(j).xRange[0], cur.get(j).yRange[0], cur.get(j).zRange[0], cuboids.get(i))
-                || !isInside(cur.get(j).xRange[0], cur.get(j).yRange[0], cur.get(j).zRange[1], cuboids.get(i))
-                || !isInside(cur.get(j).xRange[0], cur.get(j).yRange[1], cur.get(j).zRange[0], cuboids.get(i))
-                || !isInside(cur.get(j).xRange[0], cur.get(j).yRange[1], cur.get(j).zRange[1], cuboids.get(i))
-                || !isInside(cur.get(j).xRange[1], cur.get(j).yRange[0], cur.get(j).zRange[0], cuboids.get(i))
-                || !isInside(cur.get(j).xRange[1], cur.get(j).yRange[0], cur.get(j).zRange[1], cuboids.get(i))
-                || !isInside(cur.get(j).xRange[1], cur.get(j).yRange[1], cur.get(j).zRange[0], cuboids.get(i))
-                || !isInside(cur.get(j).xRange[1], cur.get(j).yRange[1], cur.get(j).zRange[1], cuboids.get(i))) {
+        } else {
           cur.add(cur.get(j));
         }
       }
