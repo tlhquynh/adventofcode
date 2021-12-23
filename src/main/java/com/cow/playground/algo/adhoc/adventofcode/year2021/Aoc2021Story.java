@@ -104,7 +104,10 @@ public class Aoc2021Story {
     DiracDiceGame game = new DiracDiceGame();
     game.simulateDeterministicDice(100);
     game.simulateDiracDice();
+
+    // day 22 reboot reactor
+    Reactor reactor = new Reactor();
+    reactor.reboot(-50, 50, -50, 50, -50, 50);
+    reactor.reboot();
   }
-
-
 }
