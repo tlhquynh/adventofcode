@@ -109,5 +109,13 @@ public class Aoc2021Story {
     Reactor reactor = new Reactor();
     reactor.reboot(-50, 50, -50, 50, -50, 50);
     reactor.reboot();
+
+    // day 23 organiza amphipods: unsolved
+//    AmphipodSorter sorter = new AmphipodSorter();
+//    sorter.sort();
+
+    // day 25 herds of sea cucumbers
+    SeaCucumberMap seaCucumberMap = new SeaCucumberMap();
+    seaCucumberMap.stepsToFroze();
   }
 }

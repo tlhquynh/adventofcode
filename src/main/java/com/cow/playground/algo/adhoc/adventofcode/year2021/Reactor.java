@@ -128,7 +128,7 @@ public class Reactor {
         LOGGER.debug("{}: {} ==> {}", cuboid, cuboid.size(), res);
       }
     }
-    LOGGER.info("day 23 task 2: 1302784472088899");
+    LOGGER.info("day 22 task 2: 1302784472088899");
     LOGGER.info("switched-on cube count={}", res);
 
     return res;
