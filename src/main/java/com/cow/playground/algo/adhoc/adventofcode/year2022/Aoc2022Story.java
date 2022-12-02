@@ -7,5 +7,10 @@ public class Aoc2022Story {
         // Day 1 - Calorie counting
         CalorieCounting cc = new CalorieCounting();
         cc.findTops();
+
+        // Day 2 - Rock Paper Scissors
+        RockPaperScissors rps = new RockPaperScissors();
+        rps.task1();
+        rps.task2();
     }
 }
