@@ -72,8 +72,9 @@ public class RockPaperScissors {
     }
 
     public void task1() {
-        LOGGER.info("day 2 task 1: 13809");
-        LOGGER.debug("x=rock, y=paper, z=scissors: {}", getTotal(ROCK, PAPER, SCISSORS));
+        int res = getTotal(ROCK, PAPER, SCISSORS);
+        assert res == 13809;
+        LOGGER.info("day 2 task 1: {}", res);
     }
 
     public void task2() {
@@ -87,7 +88,7 @@ public class RockPaperScissors {
                 total += "X".equals(round[1]) ? pointsForB(SCISSORS, PAPER) : "Y".equals(round[1]) ? pointsForB(SCISSORS, SCISSORS) : pointsForB(SCISSORS, ROCK);
             }
         }
-        LOGGER.info("day 2 task 2: 12316");
-        LOGGER.debug("points for new strategy: {}", total);
+        assert total == 12316;
+        LOGGER.info("day 2 task 2: {}", total);
     }
 }

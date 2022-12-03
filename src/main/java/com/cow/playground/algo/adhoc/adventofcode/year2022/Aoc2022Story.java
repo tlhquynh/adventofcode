@@ -12,5 +12,10 @@ public class Aoc2022Story {
         RockPaperScissors rps = new RockPaperScissors();
         rps.task1();
         rps.task2();
+
+        // Day 3 - Rucksack Reorganization
+        RucksackReorganization rr = new RucksackReorganization();
+        rr.task1();
+        rr.task2();
     }
 }
