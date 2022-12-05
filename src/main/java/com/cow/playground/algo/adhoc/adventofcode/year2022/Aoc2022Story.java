@@ -22,5 +22,10 @@ public class Aoc2022Story {
         CampCleanup campCleanup = new CampCleanup();
         campCleanup.findEnclosingPairs();
         campCleanup.findOverlappingPairs();
+
+        // Day 5: Supply Stacks
+        SupplyStacks ss = new SupplyStacks();
+        ss.rearrangeByCrateMover9000();
+        ss.rearrangeByCrateMover9001();
     }
 }
