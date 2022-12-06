@@ -27,5 +27,10 @@ public class Aoc2022Story {
         SupplyStacks ss = new SupplyStacks();
         ss.rearrangeByCrateMover9000();
         ss.rearrangeByCrateMover9001();
+
+        // Day 6: Tuning Trouble
+        TuningTrouble tt = new TuningTrouble();
+        tt.task1();
+        tt.task2();
     }
 }
