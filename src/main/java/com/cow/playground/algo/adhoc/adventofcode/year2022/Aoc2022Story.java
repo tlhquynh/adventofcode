@@ -32,5 +32,10 @@ public class Aoc2022Story {
         TuningTrouble tt = new TuningTrouble();
         tt.task1();
         tt.task2();
+
+        // Day 7: No Space Left On Device
+        OutOfSpace oos = new OutOfSpace();
+        oos.task1();
+        oos.task2();
     }
 }
