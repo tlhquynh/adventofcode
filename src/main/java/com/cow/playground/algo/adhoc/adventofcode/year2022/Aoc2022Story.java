@@ -37,5 +37,10 @@ public class Aoc2022Story {
         OutOfSpace oos = new OutOfSpace();
         oos.task1();
         oos.task2();
+
+        // Day 8: Treetop Tree House
+        TreeHouse th = new TreeHouse();
+        th.task1();
+        th.task2();
     }
 }
