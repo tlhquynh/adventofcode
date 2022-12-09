@@ -42,5 +42,10 @@ public class Aoc2022Story {
         TreeHouse th = new TreeHouse();
         th.task1();
         th.task2();
+
+        // Day 9: Rope Bridge
+        RopeBridge rb = new RopeBridge();
+        rb.task1();
+        rb.task2();
     }
 }
