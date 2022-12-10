@@ -34,12 +34,12 @@ public class CalorieCounting {
         }
 
         int sum = pq.remove();
-        LOGGER.debug("An elf brought {} calories!", sum);
-        LOGGER.info("day 1 task 1: 67450");
+        assert sum == 67450;
+        LOGGER.info("day 1 task 1: {}", sum);
 
         sum += pq.remove() + pq.remove();
-        LOGGER.debug("Top 3 elves brought {} calories!", sum);
-        LOGGER.info("day 1 task 2: 199357");
+        assert sum == 199357;
+        LOGGER.info("day 1 task 2: {}}", sum);
     }
 
     private void readInputs() throws IOException {
