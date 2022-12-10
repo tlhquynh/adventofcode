@@ -47,5 +47,10 @@ public class Aoc2022Story {
         RopeBridge rb = new RopeBridge();
         rb.task1();
         rb.task2();
+
+        // Day 10: Cathode-Ray Tube
+        CathodeRayTube crt = new CathodeRayTube();
+        crt.task1();
+        crt.task2();
     }
 }
