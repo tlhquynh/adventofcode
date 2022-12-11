@@ -52,5 +52,10 @@ public class Aoc2022Story {
         CathodeRayTube crt = new CathodeRayTube();
         crt.task1();
         crt.task2();
+
+        // Day 11: Monkey in the Middle
+        MonkeyBusiness mb = new MonkeyBusiness();
+        mb.task1();
+        mb.task2();
     }
 }
