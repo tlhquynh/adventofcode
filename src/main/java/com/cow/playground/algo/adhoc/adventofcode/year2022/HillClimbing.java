@@ -65,7 +65,7 @@ public class HillClimbing {
                     Location next = new Location(nr, nc);
                     queue.addLast(next);
                     if (nr == end.r && nc == end.c) {
-                        assert v[nr][nc] == 449;
+                        assert v[nr][nc] - 1 == 449;
                         LOGGER.info("S -> E in {} steps", v[nr][nc] - 1);
                         return;
                     }
@@ -93,7 +93,7 @@ public class HillClimbing {
                     Location next = new Location(nr, nc);
                     queue.addLast(next);
                     if (map.get(nr)[nc] == 'a') {
-                        assert v[nr][nc] == 443;
+                        assert v[nr][nc] - 1 == 443;
                         LOGGER.info("a -> E in {} steps", v[nr][nc] - 1);
                         return;
                     }
