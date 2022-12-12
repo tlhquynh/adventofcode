@@ -57,5 +57,10 @@ public class Aoc2022Story {
         MonkeyBusiness mb = new MonkeyBusiness();
         mb.task1();
         mb.task2();
+
+        // Day 12: Hill Climbing Algorithm
+        HillClimbing hc = new HillClimbing();
+        hc.task1();
+        hc.task2();
     }
 }
