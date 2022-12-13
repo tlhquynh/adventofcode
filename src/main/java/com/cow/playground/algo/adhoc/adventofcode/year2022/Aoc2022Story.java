@@ -62,5 +62,10 @@ public class Aoc2022Story {
         HillClimbing hc = new HillClimbing();
         hc.task1();
         hc.task2();
+
+        // Day 13: Distress Signal
+        DistressSignal ds = new DistressSignal();
+        ds.task1();
+        ds.task2();
     }
 }
