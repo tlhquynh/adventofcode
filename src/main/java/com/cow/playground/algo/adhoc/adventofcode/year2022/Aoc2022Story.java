@@ -67,5 +67,10 @@ public class Aoc2022Story {
         DistressSignal ds = new DistressSignal();
         ds.task1();
         ds.task2();
+
+        // Day 14: Regolith Reservoir
+        RegolithReservoir reservoir = new RegolithReservoir();
+        reservoir.task1();
+        reservoir.task2();
     }
 }
