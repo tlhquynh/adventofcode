@@ -72,5 +72,10 @@ public class Aoc2022Story {
         RegolithReservoir reservoir = new RegolithReservoir();
         reservoir.task1();
         reservoir.task2();
+
+        // Day 15: Beacon Exclusion Zone
+        BeaconZone bz = new BeaconZone();
+        bz.task1();
+        bz.task2();
     }
 }
