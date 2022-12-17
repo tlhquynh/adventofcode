@@ -77,5 +77,10 @@ public class Aoc2022Story {
         BeaconZone bz = new BeaconZone();
         bz.task1();
         bz.task2();
+
+        // Day 16: Proboscidea Volcanium
+        ProboscideaVolcanium pv = new ProboscideaVolcanium();
+        pv.task1();
+        pv.task2();
     }
 }
