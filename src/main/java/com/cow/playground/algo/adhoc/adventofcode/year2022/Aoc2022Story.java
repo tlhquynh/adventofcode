@@ -82,5 +82,9 @@ public class Aoc2022Story {
         ProboscideaVolcanium pv = new ProboscideaVolcanium();
         pv.task1();
         pv.task2();
+
+        // Day 17: Pyroclastic Flow
+        PyroclasticFlow pf = new PyroclasticFlow();
+        pf.task1();
     }
 }
