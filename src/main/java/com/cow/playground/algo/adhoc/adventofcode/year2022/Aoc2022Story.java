@@ -86,5 +86,10 @@ public class Aoc2022Story {
         // Day 17: Pyroclastic Flow
         PyroclasticFlow pf = new PyroclasticFlow();
         pf.task1();
+
+        // Day 18: Boiling Boulders
+        BoilingBoulders bb = new BoilingBoulders();
+        bb.task1();
+        bb.task2();
     }
 }
