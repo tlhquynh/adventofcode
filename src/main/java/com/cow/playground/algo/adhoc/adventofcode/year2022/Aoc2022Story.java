@@ -91,5 +91,19 @@ public class Aoc2022Story {
         BoilingBoulders bb = new BoilingBoulders();
         bb.task1();
         bb.task2();
+
+//        // Day 19: Not Enough Minerals
+//        MineralMining mm = new MineralMining();
+//        mm.task1();
+
+        // Day 20: Grove Positioning System
+
+        // Day 21: Monkey Math
+        MonkeyMath monkeyMath = new MonkeyMath();
+        monkeyMath.task1();
+        monkeyMath.task2();
+        // Day 22: Monkey Map
+
+        //
     }
 }
